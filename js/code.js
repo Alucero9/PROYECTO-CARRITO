@@ -22,11 +22,22 @@ class ElementoCarrito {
  * Definiciones de constantes
  */
 const estandarDolaresAmericanos = Intl.NumberFormat("en-US");
+const guardarLocal = (clave, valor) => { localStorage.setItem(clave, valor)}
+const carritoEnLS = JSON.parse(localStorage.getItem("carrito"));
+
 
 //Arrays donde guardaremos catálogo de productos y elementos en carrito
 const productos = [];
+
 const elementosCarrito = [];
 
+
+// Falla
+/* if (carritoEnLS ) {
+    elementosCarrito = carritoEnLS 
+} 
+// Función que renderizaría el carrito
+dibujarCarrito( elementosCarrito )  */
 
 const contenedorProductos = document.getElementById("contenedor-productos");
 
@@ -118,7 +129,6 @@ function cargarProductos() {
 function dibujarCarrito() {
   let sumaCarrito = 0;
   contenedorCarritoCompras.innerHTML = "";
-
   elementosCarrito.forEach((birra) => {
     let renglonesCarrito = document.createElement("tr");
 
@@ -134,7 +144,7 @@ function dibujarCarrito() {
                 <td>$ ${estandarDolaresAmericanos.format(
                   birra.producto.precio * birra.cantidad
                 )}</td>
-                <td><button class='btn btn-close' id='btnquitar'></button></td>
+                <td><button class='btn btn-close' id='btnquitar' onclick='quitarItem(${birra.producto.id})'></button></td>
             `;
             
 
@@ -154,7 +164,8 @@ function dibujarCarrito() {
     });
     
   });
-
+  
+ 
   //contenedorCarritoCompras.innerHTML = renglonesCarrito;
 
   if (elementosCarrito.length == 0) {
@@ -168,6 +179,7 @@ function dibujarCarrito() {
             )}</th>
         `;
   }
+  guardarLocal("carrito",JSON.stringify(elementosCarrito)); 
 }
 
 function crearCard(producto) {
@@ -175,6 +187,7 @@ function crearCard(producto) {
   let botonAgregar = document.createElement("button");
   botonAgregar.className = "btn btn-success";
   botonAgregar.innerText = "Agregar";
+  
 
   //Card body
   let cuerpoCarta = document.createElement("div");
@@ -200,10 +213,9 @@ function crearCard(producto) {
 
   botonAgregar.onclick = () => {
     let elementoCarrito = new ElementoCarrito(producto, 1);
-    elementosCarrito.push(elementoCarrito);
-    
-    dibujarCarrito();
-
+    elementosCarrito.push(elementoCarrito); 
+  dibujarCarrito();
+   
     swal({
       title: "¡Producto agregado!",
       text: `${producto.nombre} agregado al carrito de compra.`,
@@ -233,6 +245,7 @@ function crearCard(producto) {
   
   return carta;
   
+ 
 }
 
 function dibujarCatalogoProductos() {
@@ -244,10 +257,10 @@ function dibujarCatalogoProductos() {
   });
 }
 
-//boton eliminar producto de carrito
-/* const botonquitar =document.getElementById("btnquitar")
-    botonquitar.onclick = () => {
-    let elementoCarrito = new ElementoCarrito(producto, 1);
-    elementosCarrito.delete(elementoCarrito);
+function quitarItem(birra) {
+  const elemento = elementosCarrito.find((obj)=>obj.producto.id===birra);
+ const index = elementosCarrito.indexOf(elemento);
+ const resultado = elementosCarrito.splice(index, 1)
+ dibujarCarrito()
+}
 
-    dibujarCarrito();} */
