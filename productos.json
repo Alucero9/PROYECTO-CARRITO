@@ -1,0 +1,52 @@
+[{
+        "id": 1,
+        "foto": "./img/KM 24.7.jpg",
+        "nombre": "KM 24.7",
+        "precio": 350
+    },
+    {
+        "id": 2,
+        "foto": "./img/VERA IPA.jpg",
+        "nombre": "VERA IPA",
+        "precio": 290,
+        "color": "rubia"
+    },
+    {
+        "id": 3,
+        "foto": "./img/WEISSE.jpg",
+        "nombre": "WEISSE",
+        "precio": 320,
+        "color": "rubia"
+    },
+    {
+        "id": 4,
+        "foto": "./img/AMBER LAGER.jpg",
+        "nombre": "AMBER LAGER",
+        "precio": 290,
+        "color": "roja"
+    },
+    {
+        "id": 5,
+        "foto": "./img/BOEMIAN PILSENER.jpg",
+        "nombre": "BOEMIAN PILSENER",
+        "precio": 290,
+        "color": "rubia"
+    },
+    {
+        "id": 6,
+        "foto": "./img/HOPPY LAGER.jpg",
+        "nombre": "HOPPY LAGER",
+        "precio": 330,
+        "color": "rubia"
+    },
+    {
+        "id": 7,
+        "foto": "./img/PORTER.jpg",
+        "nombre": "PORTER",
+        "precio": 310,
+        "color": "negra"
+    }
+
+]
+
+
