@@ -2,7 +2,8 @@
         "id": 1,
         "foto": "./img/KM 24.7.jpg",
         "nombre": "KM 24.7",
-        "precio": 350
+        "precio": 350,
+        "color": "rubia"
     },
     {
         "id": 2,
@@ -45,6 +46,13 @@
         "nombre": "PORTER",
         "precio": 310,
         "color": "negra"
+    },
+    {
+        "id": 8,
+        "foto": "./img/AUSTRAL.jpg",
+        "nombre": "AUSTRAL",
+        "precio": 350,
+        "color": "roja"
     }
 
 ]

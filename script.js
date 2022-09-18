@@ -20,7 +20,7 @@ function renderizarProductos() {
     //renderizamos los productos 
    
     for (const prod of cervezasJson) {
-        lista.innerHTML+=(`<li class="col-sm-3 list-group-item">
+        lista.innerHTML+=(`<li class="col-sm-3 list-group-item ">
         <h3>ID: ${prod.id}</h3>
         <img src="${prod.foto}" width="250px" height="250px">
         <p>Producto: ${prod.nombre}</p>
